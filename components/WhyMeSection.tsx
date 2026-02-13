@@ -1,3 +1,5 @@
+'use client'
+
 import { TrendingUp, Shield, Handshake, Filter, FileCheck } from 'lucide-react'
 import agentData from '@/content/michal-novotny'
 
@@ -11,33 +13,29 @@ const iconMap = {
 
 export default function WhyMeSection() {
   return (
-    <section className="section-padding bg-white">
+    <section className="py-20 bg-white">
       <div className="container-custom">
-        {/* Header */}
-        <div className="text-center mb-16">
-          <h2 className="text-4xl lg:text-5xl font-heading font-bold text-text-dark mb-4">
-            Proč prodávat se mnou
-          </h2>
-          <p className="text-xl text-text-gray max-w-2xl mx-auto">
-            Mám zkušenosti, znám trh a chráním vaše zájmy
-          </p>
-        </div>
-
-        {/* Grid důvodů */}
+        {/* Grid důvodů - 3 sloupce na desktopu, 2 na tabletu, 1 na mobilu */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {agentData.whyMe.map((reason, index) => {
             const Icon = iconMap[reason.icon as keyof typeof iconMap]
             return (
               <div
                 key={index}
-                className="group bg-white border-2 border-transparent rounded-xl p-6 shadow-card hover:shadow-card-hover hover:border-brand-orange transition-all duration-300 animate-fade-in"
-                style={{ animationDelay: `${index * 100}ms` }}
+                className="group p-8 rounded-2xl bg-white border border-gray-100 hover:border-brand-orange/30 hover:shadow-xl transition-all duration-300"
               >
-                <Icon className="w-12 h-12 text-brand-orange mb-4 group-hover:scale-110 transition-transform" />
-                <h3 className="text-xl font-heading font-bold text-text-dark mb-3">
+                {/* Ikona */}
+                <div className="w-14 h-14 rounded-xl bg-brand-orange/10 flex items-center justify-center mb-6 group-hover:bg-brand-orange/20 transition-colors">
+                  <Icon className="w-7 h-7 text-brand-orange" strokeWidth={1.5} />
+                </div>
+                
+                {/* Nadpis */}
+                <h3 className="text-xl font-bold text-gray-900 mb-3">
                   {reason.title}
                 </h3>
-                <p className="text-text-gray leading-relaxed">
+                
+                {/* Popis */}
+                <p className="text-gray-600 leading-relaxed">
                   {reason.description}
                 </p>
               </div>

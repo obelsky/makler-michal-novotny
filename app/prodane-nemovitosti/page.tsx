@@ -83,22 +83,22 @@ export default function ProdaneNemovitostiPage() {
               return (
                 <div
                   key={property.id}
-                  className="bg-white rounded-xl overflow-hidden shadow-card hover:shadow-card-hover transition-shadow duration-300 group"
+                  className="bg-white rounded-2xl overflow-hidden border border-gray-100 hover:shadow-xl transition-all duration-300 group"
                 >
                   {/* Obrázek s galerií */}
-                  <div className="relative h-80 overflow-hidden">
+                  <div className="relative h-72 overflow-hidden">
                     <Image
                       src={currentImage}
                       alt={`${property.location} - ${property.type}`}
                       fill
-                      className="object-cover"
+                      className="object-cover group-hover:scale-105 transition-transform duration-500"
                     />
                     
                     {/* Badge */}
                     <div className="absolute top-4 right-4 z-10">
-                      <span className={`px-4 py-2 rounded-lg font-bold text-xs uppercase ${
+                      <span className={`px-3 py-1.5 rounded-full font-semibold text-xs uppercase tracking-wide ${
                         property.status === 'prodáno'
-                          ? 'bg-red-500 text-white'
+                          ? 'bg-gray-900 text-white'
                           : 'bg-green-500 text-white'
                       }`}>
                         {property.status}
@@ -114,7 +114,7 @@ export default function ProdaneNemovitostiPage() {
                           className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/90 hover:bg-white flex items-center justify-center shadow-lg transition-all opacity-0 group-hover:opacity-100 z-10"
                           aria-label="Předchozí fotka"
                         >
-                          <ChevronLeft className="w-6 h-6 text-text-dark" />
+                          <ChevronLeft className="w-5 h-5 text-gray-900" strokeWidth={1.5} />
                         </button>
 
                         {/* Next button */}
@@ -123,7 +123,7 @@ export default function ProdaneNemovitostiPage() {
                           className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/90 hover:bg-white flex items-center justify-center shadow-lg transition-all opacity-0 group-hover:opacity-100 z-10"
                           aria-label="Další fotka"
                         >
-                          <ChevronRight className="w-6 h-6 text-text-dark" />
+                          <ChevronRight className="w-5 h-5 text-gray-900" strokeWidth={1.5} />
                         </button>
 
                         {/* Dots indicator */}
@@ -132,10 +132,10 @@ export default function ProdaneNemovitostiPage() {
                             <button
                               key={index}
                               onClick={() => setActiveImage(prev => ({ ...prev, [property.id]: index }))}
-                              className={`w-2 h-2 rounded-full transition-all ${
+                              className={`h-2 rounded-full transition-all ${
                                 index === currentImageIndex
                                   ? 'bg-white w-6'
-                                  : 'bg-white/60 hover:bg-white/80'
+                                  : 'bg-white/60 hover:bg-white/80 w-2'
                               }`}
                               aria-label={`Fotka ${index + 1}`}
                             />
@@ -147,18 +147,14 @@ export default function ProdaneNemovitostiPage() {
 
                   {/* Obsah */}
                   <div className="p-6">
-                    <div className="flex items-start justify-between mb-3">
-                      <div>
-                        <h3 className="text-2xl font-heading font-bold text-text-dark mb-2">
-                          {property.location}
-                        </h3>
-                        <p className="text-text-gray mb-1">
-                          {property.type} {property.size && `• ${property.size}`}
-                        </p>
-                      </div>
-                    </div>
+                    <h3 className="text-2xl font-bold text-gray-900 mb-1">
+                      {property.location}
+                    </h3>
+                    <p className="text-gray-500 text-sm mb-4">
+                      {property.type} • {property.size}
+                    </p>
 
-                    <p className="text-text-gray mb-4 leading-relaxed">
+                    <p className="text-gray-600 mb-4 leading-relaxed">
                       {property.description}
                     </p>
 
@@ -170,7 +166,7 @@ export default function ProdaneNemovitostiPage() {
                         rel="noopener noreferrer"
                         className="inline-flex items-center gap-2 text-brand-orange hover:text-brand-orange-hover font-medium transition-colors"
                       >
-                        <ExternalLink className="w-4 h-4" />
+                        <ExternalLink className="w-4 h-4" strokeWidth={1.5} />
                         <span>{property.website}</span>
                       </a>
                     )}

@@ -110,25 +110,27 @@ export default function ProcSMakleremPage() {
       </section>
 
       {/* Nejčastější chyby */}
-      <section className="section-padding bg-white">
+      <section className="py-20 bg-white">
         <div className="container-custom max-w-5xl">
-          <h2 className="text-3xl font-heading font-bold text-text-dark mb-12 text-center">
+          <h2 className="text-3xl font-bold text-gray-900 mb-12 text-center">
             Co nejčastěji zkazí prodej nemovitosti
           </h2>
 
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className="grid md:grid-cols-2 gap-6">
             {mistakes.map((mistake, index) => (
               <div
                 key={index}
-                className="bg-white rounded-xl p-6 shadow-card border-l-4 border-red-500"
+                className="bg-white rounded-2xl p-6 border border-gray-100 hover:border-red-200 hover:shadow-lg transition-all duration-300"
               >
                 <div className="flex items-start gap-4 mb-4">
-                  <AlertTriangle className="w-8 h-8 text-red-500 flex-shrink-0" />
-                  <h3 className="text-xl font-heading font-bold text-text-dark">
+                  <div className="w-10 h-10 rounded-xl bg-red-50 flex items-center justify-center flex-shrink-0">
+                    <AlertTriangle className="w-5 h-5 text-red-500" strokeWidth={1.5} />
+                  </div>
+                  <h3 className="text-xl font-bold text-gray-900 pt-1">
                     {mistake.title}
                   </h3>
                 </div>
-                <p className="text-text-gray leading-relaxed">
+                <p className="text-gray-600 leading-relaxed pl-14">
                   {mistake.description}
                 </p>
               </div>

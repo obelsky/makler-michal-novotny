@@ -64,7 +64,7 @@ export default function Header() {
           {/* CTA tlačítko - Desktop */}
           <a
             href={`tel:${agentData.phone}`}
-            className="hidden lg:flex items-center space-x-2 bg-brand-orange text-white px-6 py-3 rounded-lg hover:bg-brand-orange-hover transition-colors duration-300"
+            className="hidden lg:flex items-center space-x-2 bg-brand-orange text-white px-6 py-3 rounded-full hover:bg-brand-orange-hover transition-colors duration-300 shadow-lg shadow-brand-orange/25"
           >
             <Phone className="w-4 h-4" />
             <span className="font-bold">{agentData.phone}</span>
