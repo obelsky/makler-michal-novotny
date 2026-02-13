@@ -30,7 +30,7 @@ export default function ProcSMakleremPage() {
   const mistakes = [
     {
       title: 'Špatná cena',
-      description: 'Příliš vysoká cena = nemovitost visí v inzerci měsíce a ztrácí na atraktivitě. Kupující si myslí, že s ní je něco špatně. Příliš nízká = přicházíte o peníze, které by vám práv ně patřily.',
+      description: 'Příliš vysoká cena = nemovitost visí v inzerci měsíce a ztrácí na atraktivitě. Kupující si myslí, že s ní je něco špatně. Příliš nízká = přicházíte o peníze, které by vám právem patřily.',
     },
     {
       title: 'Právní chyby',

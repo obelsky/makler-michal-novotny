@@ -116,7 +116,7 @@ export const agentData: AgentData = {
   whyMe: [
     {
       title: "Správné nacenění",
-      description: "Stanoveím cenu podle reálných tržních dat, ne podle přání. Díky tomu vaše nemovitost nevisí v inzerci měsíce, ale prodává se rychle a za férovou cenu.",
+      description: "Stanovím cenu podle reálných tržních dat, ne podle přání. Díky tomu vaše nemovitost nevisí v inzerci měsíce, ale prodává se rychle a za férovou cenu.",
       icon: "TrendingUp"
     },
     {
@@ -131,7 +131,7 @@ export const agentData: AgentData = {
     },
     {
       title: "Filtrace zájemců",
-      description: "Netráptím vás zvědavci a nereálnými zájemci. Na prohlídky pouštím jen skutečné kupce, kteří mají vážný zájem a finance.",
+      description: "Netrápím vás zvědavci a nereálnými zájemci. Na prohlídky pouštím jen skutečné kupce, kteří mají vážný zájem a finance.",
       icon: "Filter"
     },
     {
@@ -153,7 +153,7 @@ export const agentData: AgentData = {
     {
       step: 2,
       title: "Reálný odhad ceny",
-      description: "Cenu stanoveím na základě aktuálních tržních dat, srovnatelných prodejů v okolí a stavu nemovitosti. Nejde o odhad od stolu, ale o reálnou analýzu trhu."
+      description: "Cenu stanovím na základě aktuálních tržních dat, srovnatelných prodejů v okolí a stavu nemovitosti. Nejde o odhad od stolu, ale o reálnou analýzu trhu."
     },
     {
       step: 3,

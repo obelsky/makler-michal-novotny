@@ -174,13 +174,6 @@ export default function ProdaneNemovitostiPage() {
                         <span>{property.website}</span>
                       </a>
                     )}
-
-                    {/* Datum */}
-                    <div className="mt-4 pt-4 border-t border-gray-200">
-                      <span className="text-sm text-text-gray">
-                        Realizováno: {property.soldDate}
-                      </span>
-                    </div>
                   </div>
                 </div>
               )
