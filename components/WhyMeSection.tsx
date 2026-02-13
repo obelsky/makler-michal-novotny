@@ -1,12 +1,12 @@
 'use client'
 
-import { TrendingUp, Shield, Handshake, Filter, FileCheck } from 'lucide-react'
+import { TrendingUp, Shield, Users, Filter, FileCheck } from 'lucide-react'
 import agentData from '@/content/michal-novotny'
 
 const iconMap: { [key: string]: any } = {
   TrendingUp,
   Shield,
-  Handshake,
+  Handshake: Users,
   Filter,
   FileCheck,
 }
