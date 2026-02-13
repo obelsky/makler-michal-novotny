@@ -3,7 +3,7 @@
 import { TrendingUp, Shield, Handshake, Filter, FileCheck } from 'lucide-react'
 import agentData from '@/content/michal-novotny'
 
-const iconMap = {
+const iconMap: { [key: string]: any } = {
   TrendingUp,
   Shield,
   Handshake,
@@ -15,16 +15,16 @@ export default function WhyMeSection() {
   return (
     <section className="py-20 bg-white">
       <div className="container-custom">
-        {/* Grid důvodů - 3 sloupce na desktopu, 2 na tabletu, 1 na mobilu */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {/* Grid důvodů */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {agentData.whyMe.map((reason, index) => {
-            const Icon = iconMap[reason.icon as keyof typeof iconMap]
+            const Icon = iconMap[reason.icon] || TrendingUp
             return (
               <div
                 key={index}
                 className="group p-8 rounded-2xl bg-white border border-gray-100 hover:border-brand-orange/30 hover:shadow-xl transition-all duration-300"
               >
-                {/* Ikona */}
+                {/* Ikona v barevném boxu */}
                 <div className="w-14 h-14 rounded-xl bg-brand-orange/10 flex items-center justify-center mb-6 group-hover:bg-brand-orange/20 transition-colors">
                   <Icon className="w-7 h-7 text-brand-orange" strokeWidth={1.5} />
                 </div>

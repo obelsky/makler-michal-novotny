@@ -8,71 +8,51 @@ export default function CookieBanner() {
   const [isVisible, setIsVisible] = useState(false)
 
   useEffect(() => {
-    // Zkontrolovat, jestli uživatel už souhlasil
     const consent = localStorage.getItem('cookie-consent')
     if (!consent) {
-      // Zobrazit po 1 sekundě pro lepší UX
-      setTimeout(() => setIsVisible(true), 1000)
+      const timer = setTimeout(() => setIsVisible(true), 1000)
+      return () => clearTimeout(timer)
     }
   }, [])
 
-  const acceptCookies = () => {
+  const handleAccept = () => {
     localStorage.setItem('cookie-consent', 'accepted')
     setIsVisible(false)
   }
 
-  const rejectCookies = () => {
-    localStorage.setItem('cookie-consent', 'rejected')
+  const handleDecline = () => {
+    localStorage.setItem('cookie-consent', 'declined')
     setIsVisible(false)
   }
 
   if (!isVisible) return null
 
   return (
-    <div className="fixed bottom-0 left-0 right-0 z-50 animate-slide-up">
-      <div className="bg-white border-t-4 border-brand-orange shadow-2xl">
-        <div className="container-custom py-6">
-          <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
-            {/* Text */}
-            <div className="flex-1">
-              <h3 className="font-heading font-bold text-text-dark text-lg mb-2">
-                🍪 Používáme cookies
-              </h3>
-              <p className="text-text-gray text-sm leading-relaxed">
-                Tyto webové stránky používají pouze technické cookies nezbytné pro správné fungování webu. 
-                Nesledujeme vaše chování ani nesdílíme data s třetími stranami. 
-                Více informací najdete v{' '}
-                <Link 
-                  href="/ochrana-osobnich-udaju" 
-                  className="text-brand-orange hover:text-brand-orange-hover underline"
-                >
-                  zásadách ochrany osobních údajů
-                </Link>
-                .
-              </p>
-            </div>
-
-            {/* Tlačítka */}
-            <div className="flex items-center gap-3">
-              <button
-                onClick={rejectCookies}
-                className="px-4 py-2 text-text-gray hover:text-text-dark transition-colors text-sm font-medium"
-              >
-                Odmítnout
-              </button>
-              <button
-                onClick={acceptCookies}
-                className="btn-primary text-sm"
-              >
-                Rozumím
-              </button>
-            </div>
-
-            {/* Close button */}
+    <div className="fixed bottom-0 left-0 right-0 z-50 p-4 animate-slide-up">
+      <div className="container-custom">
+        <div className="bg-white rounded-2xl shadow-2xl border border-gray-100 p-6 flex flex-col md:flex-row items-center justify-between gap-4">
+          <p className="text-gray-600 text-sm">
+            Tento web používá pouze technické cookies nezbytné pro jeho fungování.{' '}
+            <Link href="/ochrana-osobnich-udaju" className="text-brand-orange hover:underline">
+              Více informací
+            </Link>
+          </p>
+          <div className="flex items-center gap-3">
             <button
-              onClick={rejectCookies}
-              className="absolute top-4 right-4 md:relative md:top-0 md:right-0 text-text-gray hover:text-text-dark transition-colors"
-              aria-label="Zavřít"
+              onClick={handleDecline}
+              className="px-4 py-2 text-gray-600 hover:text-gray-900 font-medium transition-colors"
+            >
+              Odmítnout
+            </button>
+            <button
+              onClick={handleAccept}
+              className="px-6 py-2 bg-brand-orange text-white rounded-full font-medium hover:bg-brand-orange-hover transition-colors"
+            >
+              Rozumím
+            </button>
+            <button
+              onClick={handleDecline}
+              className="p-2 text-gray-400 hover:text-gray-600 transition-colors"
             >
               <X className="w-5 h-5" />
             </button>

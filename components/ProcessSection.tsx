@@ -13,16 +13,16 @@ export default function ProcessSection() {
             return (
               <div
                 key={step.step}
-                className="relative pl-24 pb-12 last:pb-0"
+                className="relative pl-28 pb-12 last:pb-0"
               >
                 {/* Vertikální čára */}
                 {!isLast && (
-                  <div className="absolute left-[39px] top-[72px] bottom-0 w-0.5 bg-gradient-to-b from-brand-orange to-brand-orange/20" />
+                  <div className="absolute left-[39px] top-[80px] bottom-0 w-0.5 bg-gradient-to-b from-brand-orange to-brand-orange/20" />
                 )}
 
-                {/* Číslo kroku - kruhy */}
+                {/* Číslo kroku - oranžový kruh */}
                 <div className="absolute left-0 top-0">
-                  <div className="w-20 h-20 rounded-full bg-brand-orange flex items-center justify-center shadow-lg shadow-brand-orange/25">
+                  <div className="w-20 h-20 rounded-full bg-brand-orange flex items-center justify-center shadow-lg shadow-brand-orange/30">
                     <span className="text-3xl font-bold text-white">
                       {step.step}
                     </span>
@@ -30,7 +30,7 @@ export default function ProcessSection() {
                 </div>
 
                 {/* Obsah */}
-                <div className="pt-4">
+                <div className="pt-3">
                   <h3 className="text-2xl font-bold text-gray-900 mb-3">
                     {step.title}
                   </h3>

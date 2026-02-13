@@ -8,25 +8,6 @@ export const metadata: Metadata = {
 }
 
 export default function ProcSMakleremPage() {
-  const comparison = {
-    svepomoci: [
-      { text: 'Časová náročnost (inzerce, prohlídky, vyjednávání)', negative: true },
-      { text: 'Riziko špatného ocenění', negative: true },
-      { text: 'Neprověření kupující', negative: true },
-      { text: 'Právní rizika a chyby v dokumentaci', negative: true },
-      { text: 'Emocionální tlak při vyjednávání', negative: true },
-      { text: 'Žádná provize', negative: false },
-    ],
-    sMaklerem: [
-      { text: 'Makléř řeší vše za vás', negative: false },
-      { text: 'Reálné tržní ocenění založené na datech', negative: false },
-      { text: 'Screening zájemců a filtrace', negative: false },
-      { text: 'Kompletní právní servis a ochrana', negative: false },
-      { text: 'Objektivní vyjednávání bez emocí', negative: false },
-      { text: 'Provize makléře', negative: true },
-    ],
-  }
-
   const mistakes = [
     {
       title: 'Špatná cena',
@@ -51,61 +32,12 @@ export default function ProcSMakleremPage() {
       {/* Header */}
       <section className="pt-32 pb-16 bg-white">
         <div className="container-custom">
-          <h1 className="text-4xl lg:text-5xl font-heading font-bold text-text-dark mb-6">
+          <h1 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
             Proč prodávat nemovitost s realitním makléřem
           </h1>
-          <p className="text-xl text-text-gray max-w-3xl">
+          <p className="text-xl text-gray-600 max-w-3xl">
             Férové srovnání výhod a nevýhod. Makléř není vždy nutnost - ale měli byste vědět, do čeho jdete.
           </p>
-        </div>
-      </section>
-
-      {/* Srovnávací tabulka */}
-      <section className="section-padding bg-bg-light">
-        <div className="container-custom max-w-5xl">
-          <h2 className="text-3xl font-heading font-bold text-text-dark mb-8 text-center">
-            Prodej svépomocí vs. prodej s makléřem
-          </h2>
-
-          <div className="grid md:grid-cols-2 gap-8">
-            {/* Svépomocí */}
-            <div className="bg-white rounded-xl p-8 shadow-card">
-              <h3 className="text-2xl font-heading font-bold text-text-dark mb-6">
-                Prodej svépomocí
-              </h3>
-              <ul className="space-y-4">
-                {comparison.svepomoci.map((item, index) => (
-                  <li key={index} className="flex items-start gap-3">
-                    {item.negative ? (
-                      <XCircle className="w-6 h-6 text-red-500 flex-shrink-0 mt-0.5" />
-                    ) : (
-                      <CheckCircle className="w-6 h-6 text-green-500 flex-shrink-0 mt-0.5" />
-                    )}
-                    <span className="text-text-gray">{item.text}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            {/* S makléřem */}
-            <div className="bg-white rounded-xl p-8 shadow-card border-2 border-brand-orange">
-              <h3 className="text-2xl font-heading font-bold text-text-dark mb-6">
-                Prodej s makléřem
-              </h3>
-              <ul className="space-y-4">
-                {comparison.sMaklerem.map((item, index) => (
-                  <li key={index} className="flex items-start gap-3">
-                    {item.negative ? (
-                      <XCircle className="w-6 h-6 text-red-500 flex-shrink-0 mt-0.5" />
-                    ) : (
-                      <CheckCircle className="w-6 h-6 text-green-500 flex-shrink-0 mt-0.5" />
-                    )}
-                    <span className="text-text-gray">{item.text}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
         </div>
       </section>
 
@@ -120,7 +52,7 @@ export default function ProcSMakleremPage() {
             {mistakes.map((mistake, index) => (
               <div
                 key={index}
-                className="bg-white rounded-2xl p-6 border border-gray-100 hover:border-red-200 hover:shadow-lg transition-all duration-300"
+                className="group p-6 rounded-2xl bg-white border border-gray-100 hover:border-red-200 hover:shadow-xl transition-all duration-300"
               >
                 <div className="flex items-start gap-4 mb-4">
                   <div className="w-10 h-10 rounded-xl bg-red-50 flex items-center justify-center flex-shrink-0">
@@ -139,40 +71,39 @@ export default function ProcSMakleremPage() {
         </div>
       </section>
 
-      {/* Kdy dává smysl makléř */}
-      <section className="section-padding bg-bg-light">
-        <div className="container-custom max-w-4xl">
-          <h2 className="text-3xl font-heading font-bold text-text-dark mb-12 text-center">
+      {/* Kdy makléř má/nemá smysl */}
+      <section className="py-20 bg-gray-50">
+        <div className="container-custom max-w-5xl">
+          <h2 className="text-3xl font-bold text-gray-900 mb-12 text-center">
             Kdy makléře potřebujete a kdy ne
           </h2>
 
-          <div className="grid md:grid-cols-2 gap-12">
+          <div className="grid md:grid-cols-2 gap-8">
             {/* Makléř má smysl */}
-            <div>
-              <h3 className="text-2xl font-heading font-bold text-green-600 mb-6">
+            <div className="bg-white rounded-2xl p-8 border border-gray-100">
+              <h3 className="text-xl font-bold text-green-600 mb-6">
                 Makléř má smysl když:
               </h3>
               <ul className="space-y-4">
                 {[
-                  'Nemáte čas na prohlídky a jednání s kupujícími',
-                  'Nejste si jistí správnou cenou nemovitosti',
+                  'Nemáte čas na prohlídky a jednání',
+                  'Nejste si jistí správnou cenou',
                   'Chcete právní jistotu a ochranu',
-                  'Nemovitost je komplikovaná (dědictví, spoluvlastnictví)',
-                  'Nemáte zkušenosti s prodejem nemovitostí',
+                  'Nemovitost je komplikovaná',
+                  'Nemáte zkušenosti s prodejem',
                   'Chcete prodat rychle a bez stresu',
-                  'Bydlíte daleko a nemůžete být u prohlídek',
                 ].map((item, index) => (
                   <li key={index} className="flex items-start gap-3">
-                    <CheckCircle className="w-6 h-6 text-green-600 flex-shrink-0 mt-0.5" />
-                    <span className="text-text-gray">{item}</span>
+                    <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" strokeWidth={1.5} />
+                    <span className="text-gray-600">{item}</span>
                   </li>
                 ))}
               </ul>
             </div>
 
             {/* Makléř NENÍ nutný */}
-            <div>
-              <h3 className="text-2xl font-heading font-bold text-text-dark mb-6">
+            <div className="bg-white rounded-2xl p-8 border border-gray-100">
+              <h3 className="text-xl font-bold text-gray-700 mb-6">
                 Makléř NENÍ nutný když:
               </h3>
               <ul className="space-y-4">
@@ -180,34 +111,21 @@ export default function ProcSMakleremPage() {
                   'Máte dostatek času a zkušeností',
                   'Nemovitost je jednoduchá a žádaná',
                   'Znáte dobře místní trh a ceny',
-                  'Máte kupce už předem (rodina, známí)',
-                  'Nemovitost je v perfektním stavu',
-                  'Nejste časově nebo finančně pod tlakem',
+                  'Máte kupce už předem',
                   'Umíte vyjednat a jste asertivní',
+                  'Nejste pod časovým tlakem',
                 ].map((item, index) => (
                   <li key={index} className="flex items-start gap-3">
-                    <span className="w-6 h-6 flex items-center justify-center text-text-gray font-bold flex-shrink-0 mt-0.5">
-                      •
-                    </span>
-                    <span className="text-text-gray">{item}</span>
+                    <span className="w-5 h-5 flex items-center justify-center text-gray-400 flex-shrink-0">•</span>
+                    <span className="text-gray-600">{item}</span>
                   </li>
                 ))}
               </ul>
             </div>
           </div>
-
-          {/* Disclaimer */}
-          <div className="mt-12 p-6 bg-white rounded-xl border-2 border-brand-orange">
-            <p className="text-lg text-text-gray text-center leading-relaxed">
-              <strong className="text-text-dark">Nejste si jistí?</strong> Zavolejte mi a poradím vám férově - i když to bude 
-              znamenat, že makléře nepotřebujete. Radši vám řeknu pravdu, než abych vás přesvědčoval o službě, 
-              kterou nepotřebujete.
-            </p>
-          </div>
         </div>
       </section>
 
-      {/* CTA */}
       <CTASection />
     </>
   )
