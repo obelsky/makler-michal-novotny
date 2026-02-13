@@ -48,7 +48,7 @@ export default function StructuredData() {
     aggregateRating: {
       '@type': 'AggregateRating',
       ratingValue: '4.8',
-      reviewCount: agentData.stats.properties,
+      reviewCount: '570',
     },
   }
 
